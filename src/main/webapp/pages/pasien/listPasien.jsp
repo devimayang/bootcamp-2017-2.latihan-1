@@ -32,8 +32,8 @@
                 <td>${satuPasien.alamat}</td>
                 <td>${satuPasien.tanggalLahir}</td>
                 <td>
-                    <a href="${pageContext.servletContext.contextPath}/pasien/delete?kodeBuku=${sebuahBuku.id}">Hapus</a>
-                    <a href="${pageContext.servletContext.contextPath}/pasien/edit?kodeBuku=${sebuahBuku.id}">Edit</a>
+                    <a href="${pageContext.servletContext.contextPath}/pasien/delete?kodePasien=${satuPasien.id}">Hapus</a>
+                    <a href="${pageContext.servletContext.contextPath}/pasien/edit?kodePasien=${satuPasien.id}">Edit</a>
                 </td>
                 </tr>
                 </c:forEach>

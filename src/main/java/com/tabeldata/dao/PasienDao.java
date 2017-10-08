@@ -40,11 +40,7 @@ public class PasienDao {
         statement.close();
         connection.close();
     }
-    
-    public void update(){
-        
-    }
-    
+
     public void delete(){
         
     }
@@ -75,7 +71,44 @@ public class PasienDao {
         return listPasien;
     }
     
-    public void findById(){
+    public Pasien findById(Integer idPasien) throws SQLException{
+        KoneksiDatabase koneksiDatabase = new KoneksiDatabase();
+        DataSource dataSource = new KoneksiDatabase().getDataSource();
+        Connection connection = dataSource.getConnection();
         
+        String sql ="select id, nama, alamat, tanggal_lahir from latihan_1.pasien where id=?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, idPasien);
+        ResultSet resultSet = statement.executeQuery();
+        Pasien pasien = new Pasien();
+        if(resultSet.next()){
+            pasien.setId(resultSet.getInt("id"));
+            pasien.setNama(resultSet.getString("nama"));
+            pasien.setAlamat(resultSet.getString("alamat"));
+            pasien.setTanggalLahir(resultSet.getDate("tanggal_lahir"));
+        }
+        resultSet.close();
+        statement.close();
+        connection.close();
+        
+        return pasien;        
+    }
+
+    public void update(Pasien pasien) throws SQLException {
+         KoneksiDatabase koneksiDB = new KoneksiDatabase();
+        DataSource dataSource = koneksiDB.getDataSource();
+        Connection connection = dataSource.getConnection();
+        
+        String sql = "update latihan_1.pasien set nama=?, alamat=?,tanggal_lahir=? where id=?";
+        
+        PreparedStatement statement= connection.prepareStatement(sql);
+        statement.setString(1, pasien.getNama());
+        statement.setString(2, pasien.getAlamat());
+        statement.setDate(3, (java.sql.Date) pasien.getTanggalLahir());
+        statement.setInt(4, pasien.getId());
+        
+        statement.executeUpdate();
+        statement.close();
+        connection.close();
     }
 }

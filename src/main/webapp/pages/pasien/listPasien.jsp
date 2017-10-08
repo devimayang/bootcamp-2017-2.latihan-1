@@ -32,15 +32,14 @@
                 <td>${satuPasien.alamat}</td>
                 <td>${satuPasien.tanggalLahir}</td>
                 <td>
-                    
-                    <a href="${pageContext.servletContext.contextPath}/buku/delete?kodeBuku=${sebuahBuku.id}">Hapus</a>
-                    <a href="${pageContext.servletContext.contextPath}/buku/edit?kodeBuku=${sebuahBuku.id}">Edit</a>
+                    <a href="${pageContext.servletContext.contextPath}/pasien/delete?kodeBuku=${sebuahBuku.id}">Hapus</a>
+                    <a href="${pageContext.servletContext.contextPath}/pasien/edit?kodeBuku=${sebuahBuku.id}">Edit</a>
                 </td>
                 </tr>
                 </c:forEach>
                 
             </tbody>
         </table>
-    <a href="${pageContext.servletContext.contextPath}/buku/new">Tambah</a>    
+    <a href="${pageContext.servletContext.contextPath}/pasien/new">Tambah</a>    
     </body>
 </html>

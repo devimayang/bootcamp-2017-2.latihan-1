@@ -9,11 +9,15 @@ import com.tabeldata.configs.KoneksiDatabase;
 import com.tabeldata.model.Pasien;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import static java.time.Instant.now;
+import java.util.ArrayList;
 import javax.sql.DataSource;
 import java.util.Date;
 import java.util.Calendar;
+import java.util.List;
 import lombok.experimental.var;
 /**
  *
@@ -45,8 +49,30 @@ public class PasienDao {
         
     }
     
-    public void findAll(){
+    public List<Pasien> findAll() throws SQLException{
+        List<Pasien> listPasien = new ArrayList<>();
         
+        KoneksiDatabase koneksiDatabase = new KoneksiDatabase();
+        DataSource dataSource = new KoneksiDatabase().getDataSource();
+        Connection connection = dataSource.getConnection();
+        
+        String sql ="select id, nama, alamat, tanggal_lahir from latihan_1.pasien order by nama";
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        while(resultSet.next()){
+            Pasien pasien = new Pasien();
+            pasien.setId(resultSet.getInt("id"));
+            pasien.setNama(resultSet.getString("nama"));
+            pasien.setAlamat(resultSet.getString("alamat"));
+            pasien.setTanggalLahir(resultSet.getDate("tanggal_lahir"));
+            
+            listPasien.add(pasien);
+        }
+        resultSet.close();
+        statement.close();
+        connection.close();
+        
+        return listPasien;
     }
     
     public void findById(){

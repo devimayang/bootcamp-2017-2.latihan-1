@@ -6,6 +6,7 @@
 package com.tabeldata.dao;
 
 import com.tabeldata.configs.KoneksiDatabase;
+import com.tabeldata.model.Pasien;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -19,7 +20,7 @@ import lombok.experimental.var;
  * @author Devi
  */
 public class PasienDao {
-    public void save() throws SQLException{
+    public void save(Pasien x) throws SQLException{
         KoneksiDatabase koneksiDB = new KoneksiDatabase();
         DataSource dataSource = koneksiDB.getDataSource();
         Connection connection = dataSource.getConnection();
@@ -27,9 +28,9 @@ public class PasienDao {
         String sql = "insert into latihan_1.pasien( nama, alamat, tanggal_lahir) values(?,?,?)";
         PreparedStatement statement= connection.prepareStatement(sql);
        
-        statement.setString(1, "Devi");
-        statement.setString(2,"bandung");
-        statement.setDate(3,java.sql.Date.valueOf("1996-12-04"));
+        statement.setString(1, x.getNama());
+        statement.setString(2, x.getAlamat());
+        statement.setDate(3, (java.sql.Date) x.getTanggalLahir());
         
         statement.executeUpdate();
         statement.close();

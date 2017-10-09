@@ -14,6 +14,7 @@
     </head>
     <body>
         <h1>Tabel Pasien</h1>
+        <a href="${pageContext.servletContext.contextPath}/pasien/new">Daftar Pasien Baru</a>
         <table>
             <thead>
                 <tr>
@@ -40,6 +41,6 @@
                 
             </tbody>
         </table>
-    <a href="${pageContext.servletContext.contextPath}/pasien/new">Tambah</a>    
+        
     </body>
 </html>

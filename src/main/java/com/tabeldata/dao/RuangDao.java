@@ -68,6 +68,10 @@ public class RuangDao {
             ruang.setId(resultSet.getInt("id"));
             ruang.setNoRuangan(resultSet.getInt("no_ruangan"));
             ruang.setKosong(resultSet.getBoolean("kosong"));
+			String isEmptyString = "";
+			if (resultSet.getBoolean("kosong")) isEmptyString = "Kosong";
+			else isEmptyString = "Terisi";
+            ruang.setIsEmpty(isEmptyString);
             
             listRuang.add(ruang);
         }
@@ -92,6 +96,10 @@ public class RuangDao {
             ruang.setId(resultSet.getInt("id"));
             ruang.setNoRuangan(resultSet.getInt("no_ruangan"));
             ruang.setKosong(resultSet.getBoolean("kosong"));
+			String isEmptyString = "";
+			if (resultSet.getBoolean("kosong")) isEmptyString = "Kosong";
+			else isEmptyString = "Terisi";
+            ruang.setIsEmpty(isEmptyString);
         }
         resultSet.close();
         statement.close();

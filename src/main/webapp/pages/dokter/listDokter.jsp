@@ -14,6 +14,7 @@
     </head>
     <body>
         <h1>Tabel Dokter</h1>
+        <a href="${pageContext.servletContext.contextPath}/dokter/new">Tambah Dokter Baru</a>
         <table>
             <thead>
                 <tr>
@@ -38,6 +39,6 @@
                 
             </tbody>
         </table>
-    <a href="${pageContext.servletContext.contextPath}/dokter/new">Tambah</a>    
+        
     </body>
 </html>

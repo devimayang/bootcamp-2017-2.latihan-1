@@ -14,6 +14,7 @@
     </head>
     <body>
         <h1>Tabel Ruang</h1>
+         <a href="${pageContext.servletContext.contextPath}/ruang/new">Tambah Ruang Baru</a>
         <table>
             <thead>
                 <tr>
@@ -38,6 +39,6 @@
                 
             </tbody>
         </table>
-    <a href="${pageContext.servletContext.contextPath}/ruang/new">Tambah</a>    
+       
     </body>
 </html>

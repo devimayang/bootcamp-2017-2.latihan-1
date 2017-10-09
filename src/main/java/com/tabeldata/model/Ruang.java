@@ -20,4 +20,11 @@ public class Ruang {
     private Integer id;
     private Integer noRuangan;
     private Boolean kosong;
+    private String isEmpty;
+
+    public Ruang(int aInt, int aInt0, boolean aBoolean) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
 }

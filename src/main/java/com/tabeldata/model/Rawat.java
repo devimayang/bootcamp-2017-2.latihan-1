@@ -6,16 +6,22 @@
 package com.tabeldata.model;
 
 import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author Devi
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Rawat {
     private Integer id;
-    private Integer pasienId;
-    private Integer dokterId;
-    private Integer ruangId;
+    private Pasien pasien;
+    private Dokter dokter;
+    private Ruang ruang;
     private Date waktuRegister;
     private Date waktuCheckout;
 }
